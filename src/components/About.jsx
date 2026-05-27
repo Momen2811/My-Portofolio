@@ -88,18 +88,8 @@ export default function About() {
           <div ref={visual.ref} className={`about-visual reveal delay-2${visual.isVisible ? ' visible' : ''}`}>
             <div className="about-photo-wrap">
               <div className="about-photo-ring" />
-              <div className="about-photo" aria-label="Momen Mohamed photo placeholder">
-                <svg viewBox="0 0 120 140" fill="none" xmlns="http://www.w3.org/2000/svg" className="about-avatar-svg" aria-hidden="true">
-                  <ellipse cx="60" cy="50" rx="28" ry="30" fill="rgba(124,58,237,.18)" stroke="rgba(168,85,247,.35)" strokeWidth="1.5"/>
-                  <ellipse cx="60" cy="115" rx="46" ry="32" fill="rgba(124,58,237,.1)" stroke="rgba(168,85,247,.25)" strokeWidth="1.5"/>
-                  <text x="50%" y="55%" textAnchor="middle" dominantBaseline="middle" fontFamily="Syne,sans-serif" fontWeight="700" fontSize="36" fill="url(#av)" opacity=".7">MM</text>
-                  <defs>
-                    <linearGradient id="av" x1="0" y1="0" x2="1" y2="1">
-                      <stop offset="0%" stopColor="#7c3aed"/>
-                      <stop offset="100%" stopColor="#a855f7"/>
-                    </linearGradient>
-                  </defs>
-                </svg>
+              <div className="about-photo">
+                <img src="/profile.png" alt="Momen Mohamed" className="about-photo-img" />
               </div>
               <div className="about-photo-glow" />
             </div>

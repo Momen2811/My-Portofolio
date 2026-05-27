@@ -98,14 +98,9 @@ export default function Experience() {
   const [lineVisible, setLineVisible] = useState(false)
 
   useEffect(() => {
-    const el = timelineRef.current
-    if (!el) return
-    const obs = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) { setLineVisible(true); obs.unobserve(el) } },
-      { threshold: 0.1 }
-    )
-    obs.observe(el)
-    return () => obs.disconnect()
+    // Fire once at page load — line draws in regardless of scroll position
+    const t = setTimeout(() => setLineVisible(true), 400)
+    return () => clearTimeout(t)
   }, [])
 
   return (

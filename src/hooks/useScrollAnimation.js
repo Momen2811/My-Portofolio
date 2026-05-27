@@ -1,26 +1,20 @@
 import { useEffect, useRef, useState } from 'react'
 
-export function useScrollAnimation(threshold = 0.12, rootMargin = '0px 0px -40px 0px') {
+/**
+ * Triggers reveal animations once at page load — not on scroll.
+ * All sections animate in their staggered order shortly after mount,
+ * then stay visible permanently.
+ */
+export function useScrollAnimation() {
   const ref = useRef(null)
   const [isVisible, setIsVisible] = useState(false)
 
   useEffect(() => {
-    const el = ref.current
-    if (!el) return
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true)
-          observer.unobserve(entry.target)
-        }
-      },
-      { threshold, rootMargin }
-    )
-
-    observer.observe(el)
-    return () => observer.disconnect()
-  }, [threshold, rootMargin])
+    // Small delay so React paints the initial opacity:0 state first,
+    // then the CSS transition runs to the visible state.
+    const t = setTimeout(() => setIsVisible(true), 60)
+    return () => clearTimeout(t)
+  }, [])
 
   return { ref, isVisible }
 }

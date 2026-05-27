@@ -92,9 +92,11 @@ export default function Navbar() {
         </div>
       </header>
 
-      {menuOpen && (
-        <div className="nav-overlay" onClick={() => setMenuOpen(false)} aria-hidden="true" />
-      )}
+      <div
+        className={`nav-overlay${menuOpen ? ' open' : ''}`}
+        onClick={() => setMenuOpen(false)}
+        aria-hidden="true"
+      />
     </>
   )
 }

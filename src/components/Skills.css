@@ -60,6 +60,8 @@
 }
 
 .skill-cat-label {
+  position: relative;
+  z-index: 1;
   font-family: var(--font-mono);
   font-size: 11px;
   letter-spacing: .14em;
@@ -71,6 +73,8 @@
 }
 
 .skill-tags {
+  position: relative;
+  z-index: 1;
   display: flex;
   flex-wrap: wrap;
   gap: 8px;

@@ -89,7 +89,13 @@ export default function About() {
             <div className="about-photo-wrap">
               <div className="about-photo-ring" />
               <div className="about-photo">
-                <img src="/profile.png" alt="Momen Mohamed" className="about-photo-img" />
+                <img
+                  src="/profile.png"
+                  alt="Momen Mohamed"
+                  className="about-photo-img"
+                  loading="lazy"
+                  decoding="async"
+                />
               </div>
               <div className="about-photo-glow" />
             </div>

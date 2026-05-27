@@ -64,7 +64,10 @@ a { text-decoration: none; color: inherit; }
 }
 
 /* ── Section spacing ── */
-section { padding: 112px 0; }
+section {
+  padding: 112px 0;
+  scroll-margin-top: 80px; /* offset for fixed navbar */
+}
 
 /* ── Section header ── */
 .section-tag {

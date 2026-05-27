@@ -58,9 +58,17 @@ export default function Contact() {
 
   const handleSubmit = e => {
     e.preventDefault()
+    if (!fields.name || !fields.email || !fields.message) return
     setStatus('sending')
-    /* Simulated submit — wire to your backend / EmailJS / Formspree */
-    setTimeout(() => setStatus('sent'), 1200)
+
+    const subject = encodeURIComponent(fields.subject || `Portfolio message from ${fields.name}`)
+    const body = encodeURIComponent(
+      `Name: ${fields.name}\nEmail: ${fields.email}\n\n${fields.message}`
+    )
+    // Opens the visitor's default email client with the message pre-filled
+    window.location.href = `mailto:Momenmoussa7@gmail.com?subject=${subject}&body=${body}`
+
+    setTimeout(() => setStatus('sent'), 800)
   }
 
   return (

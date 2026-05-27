@@ -13,7 +13,10 @@
   border: 1px solid var(--border);
   border-radius: 16px;
   overflow: hidden;
-  transition: box-shadow .4s var(--ease), border-color .4s var(--ease);
+  transition:
+    transform .45s var(--ease),
+    box-shadow .4s var(--ease),
+    border-color .4s var(--ease);
   transform-style: preserve-3d;
   will-change: transform;
 }
@@ -63,6 +66,8 @@
 
 /* ── Body ── */
 .proj-body {
+  position: relative;
+  z-index: 1;
   padding: 28px 28px 20px;
   flex: 1;
 }
@@ -109,6 +114,8 @@
 
 /* ── Footer ── */
 .proj-footer {
+  position: relative;
+  z-index: 1;
   padding: 18px 28px 24px;
   border-top: 1px solid var(--border);
   display: flex;

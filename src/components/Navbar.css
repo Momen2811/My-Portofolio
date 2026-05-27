@@ -5,16 +5,27 @@
   right: 0;
   z-index: 999;
   padding: 20px 0;
-  transition: padding .4s var(--ease), background .4s var(--ease), box-shadow .4s var(--ease);
+  transition: padding .4s var(--ease);
 }
 
-.navbar.scrolled {
-  padding: 12px 0;
+/* Frosted-glass layer lives on a pseudo-element so its containing-block
+   side effect doesn't break the position:fixed mobile menu. */
+.navbar::before {
+  content: '';
+  position: absolute;
+  inset: 0;
   background: rgba(7, 7, 14, 0.85);
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
   box-shadow: 0 1px 0 rgba(124,58,237,.12);
+  opacity: 0;
+  pointer-events: none;
+  z-index: -1;
+  transition: opacity .4s var(--ease);
 }
+
+.navbar.scrolled         { padding: 12px 0; }
+.navbar.scrolled::before { opacity: 1; }
 
 .navbar-inner {
   display: flex;

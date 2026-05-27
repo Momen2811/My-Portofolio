@@ -1,0 +1,127 @@
+.skills-section { background: rgba(124,58,237,.02); }
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+/* ── Category Card ── */
+.skill-cat {
+  position: relative;
+  padding: 28px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  overflow: hidden;
+  transition: border-color var(--trans), box-shadow var(--trans);
+}
+.skill-cat:hover {
+  border-color: var(--border-bright);
+  box-shadow: 0 8px 32px rgba(124,58,237,.15);
+}
+
+/* Spotlight */
+.skill-cat::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+    160px circle at var(--mx, -200px) var(--my, -200px),
+    rgba(168,85,247,.1),
+    transparent 70%
+  );
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity .3s;
+}
+.skill-cat:hover::before { opacity: 1; }
+
+/* Shimmer sweep */
+.skill-cat::after {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%;
+  width: 60%; height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255,255,255,.04),
+    transparent
+  );
+  transform: skewX(-15deg);
+  transition: none;
+  pointer-events: none;
+}
+.skill-cat:hover::after {
+  left: 160%;
+  transition: left .6s var(--ease);
+}
+
+.skill-cat-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--accent-2);
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border);
+}
+
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.skill-tag {
+  display: inline-block;
+  padding: 5px 12px;
+  font-size: 12.5px;
+  font-family: var(--font-mono);
+  color: var(--text-2);
+  background: rgba(124,58,237,.07);
+  border: 1px solid rgba(124,58,237,.16);
+  border-radius: 100px;
+  transition: var(--trans);
+  cursor: default;
+}
+.skill-tag:hover {
+  color: var(--accent-light);
+  background: rgba(124,58,237,.14);
+  border-color: rgba(168,85,247,.4);
+}
+
+/* ── Responsive ── */
+
+/* iPad landscape (1024px) — stays 3 col */
+@media (max-width: 1024px) {
+  .skills-grid { gap: 18px; }
+  .skill-cat   { padding: 22px; }
+}
+
+/* iPad portrait / tablet (960px) → 2 columns */
+@media (max-width: 960px) {
+  .skills-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* Large phones landscape (640px) → still 2 col but smaller */
+@media (max-width: 640px) {
+  .skills-grid { gap: 14px; }
+  .skill-cat   { padding: 18px; }
+  .skill-tag   { font-size: 11.5px; padding: 4px 10px; }
+}
+
+/* Standard phones (480px) → 1 column */
+@media (max-width: 480px) {
+  .skills-grid          { grid-template-columns: 1fr; gap: 12px; }
+  .skill-cat            { padding: 18px 16px; }
+  .skill-cat-label      { font-size: 10px; margin-bottom: 12px; padding-bottom: 10px; }
+}
+
+/* iPhone SE (390px) */
+@media (max-width: 390px) {
+  .skill-tag { font-size: 11px; padding: 4px 9px; }
+}

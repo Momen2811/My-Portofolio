@@ -1,0 +1,61 @@
+/* ── Hide native cursor on desktop ── */
+@media (pointer: fine) {
+  *, *::before, *::after { cursor: none !important; }
+}
+
+/* ── Dot ── */
+.cur-dot {
+  position: fixed;
+  top: 0; left: 0;
+  width: 7px; height: 7px;
+  background: var(--accent-light);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 10001;
+  opacity: 0;
+  will-change: transform;
+  transition:
+    width .2s var(--ease),
+    height .2s var(--ease),
+    background .2s var(--ease),
+    opacity .3s;
+  box-shadow: 0 0 8px rgba(192,132,252,.8);
+}
+.cur-dot.visible  { opacity: 1; }
+.cur-dot.hover    { width: 10px; height: 10px; background: #fff; box-shadow: 0 0 12px rgba(255,255,255,.6); }
+.cur-dot.click    { width: 4px;  height: 4px;  background: var(--accent-2); }
+
+/* ── Ring ── */
+.cur-ring {
+  position: fixed;
+  top: 0; left: 0;
+  width: 34px; height: 34px;
+  border: 1.5px solid rgba(168, 85, 247, 0.5);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 10000;
+  opacity: 0;
+  will-change: transform;
+  transition:
+    width .4s var(--ease),
+    height .4s var(--ease),
+    border-color .3s var(--ease),
+    opacity .4s,
+    background .3s;
+}
+.cur-ring.visible { opacity: 1; }
+.cur-ring.hover   {
+  width: 54px; height: 54px;
+  border-color: rgba(168, 85, 247, 0.75);
+  background: rgba(124, 58, 237, 0.06);
+}
+.cur-ring.click   {
+  width: 22px; height: 22px;
+  border-color: var(--accent);
+  background: rgba(124, 58, 237, 0.12);
+}
+
+/* ── Never show on touch ── */
+@media (pointer: coarse) {
+  .cur-dot, .cur-ring { display: none !important; }
+}

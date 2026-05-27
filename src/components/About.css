@@ -1,0 +1,200 @@
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  gap: 80px;
+  align-items: start;
+}
+
+/* ── Text ── */
+.about-text p {
+  color: var(--text-2);
+  margin-bottom: 18px;
+  font-size: 15px;
+  line-height: 1.8;
+}
+.about-text p strong { color: var(--text-1); font-weight: 500; }
+
+.about-lead {
+  font-size: 18px !important;
+  color: var(--text-1) !important;
+  line-height: 1.65 !important;
+  margin-bottom: 22px !important;
+}
+
+.about-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px 20px;
+  margin: 24px 0 32px;
+}
+.about-list-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  color: var(--text-2);
+}
+.ali-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  flex-shrink: 0;
+}
+
+.about-contact-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.about-contact-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 13.5px;
+  font-family: var(--font-mono);
+  color: var(--text-2);
+  padding: 8px 14px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  transition: var(--trans);
+}
+.about-contact-link:hover {
+  color: var(--accent-light);
+  border-color: var(--border-bright);
+  background: rgba(124,58,237,.06);
+}
+
+/* ── Visual ── */
+.about-visual {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+}
+
+.about-photo-wrap {
+  position: relative;
+  width: 240px;
+  height: 260px;
+}
+
+.about-photo-ring {
+  position: absolute;
+  inset: -8px;
+  border-radius: 50%;
+  background: conic-gradient(
+    from 0deg,
+    var(--accent) 0%,
+    var(--accent-2) 35%,
+    transparent 60%,
+    transparent 80%,
+    var(--accent) 100%
+  );
+  border-radius: 50%;
+  animation: ring-spin 8s linear infinite;
+}
+@keyframes ring-spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+.about-photo {
+  position: absolute;
+  inset: 6px;
+  border-radius: 50%;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  z-index: 1;
+}
+.about-avatar-svg { width: 100%; height: 100%; }
+
+.about-photo-glow {
+  position: absolute;
+  inset: -20px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(124,58,237,.22) 0%, transparent 70%);
+  pointer-events: none;
+  animation: photo-glow-pulse 3.5s ease-in-out infinite;
+}
+@keyframes photo-glow-pulse {
+  0%,100% { opacity: .7; transform: scale(1); }
+  50%     { opacity: 1;  transform: scale(1.1); }
+}
+
+/* ── Stats ── */
+.about-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  width: 100%;
+}
+.about-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 16px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  transition: var(--trans);
+}
+.about-stat:hover { border-color: var(--border-bright); }
+
+.as-value {
+  font-family: var(--font-display);
+  font-size: 26px;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+}
+.as-label {
+  font-size: 11.5px;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+/* ── Responsive ── */
+
+/* iPad Pro landscape (1024px) — tighten column */
+@media (max-width: 1024px) {
+  .about-grid { grid-template-columns: 1fr 360px; gap: 56px; }
+}
+
+/* iPad portrait / tablet (960px) → single column */
+@media (max-width: 960px) {
+  .about-grid   { grid-template-columns: 1fr; gap: 52px; }
+  .about-visual { align-items: center; }
+  .about-text   { text-align: left; }
+  .about-lead   { font-size: 17px !important; }
+}
+
+/* Large phones (640px) */
+@media (max-width: 640px) {
+  .about-photo-wrap { width: 200px; height: 220px; }
+  .about-stats { max-width: 400px; width: 100%; }
+}
+
+/* Standard phones (480px) */
+@media (max-width: 480px) {
+  .about-list         { grid-template-columns: 1fr; }
+  .about-contact-row  { flex-direction: column; }
+  .about-contact-link { justify-content: center; }
+  .about-photo-wrap   { width: 180px; height: 196px; }
+  .about-lead         { font-size: 16px !important; }
+}
+
+/* iPhone SE / small phones (390px) */
+@media (max-width: 390px) {
+  .about-photo-wrap { width: 160px; height: 174px; }
+  .about-stats      { grid-template-columns: 1fr 1fr; }
+  .as-value         { font-size: 22px; }
+  .about-stat       { padding: 12px; }
+}

@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import ThemeToggle from './ThemeToggle'
 import './Navbar.css'
 
 const links = [
@@ -60,6 +61,8 @@ export default function Navbar() {
             <span className="nav-logo-mm">MM</span>
           </a>
 
+          <div className="navbar-end">
+            <ThemeToggle />
           <nav className={`nav-links${menuOpen ? ' open' : ''}`} aria-label="Main navigation">
             {links.map(l => (
               <a
@@ -89,6 +92,7 @@ export default function Navbar() {
           >
             <span /><span /><span />
           </button>
+          </div>
         </div>
       </header>
 

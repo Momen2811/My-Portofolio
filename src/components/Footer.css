@@ -1,6 +1,6 @@
 .footer {
   border-top: 1px solid var(--border);
-  background: rgba(124,58,237,.02);
+  background: var(--section-tint);
 }
 
 .footer-inner {

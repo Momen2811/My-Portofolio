@@ -42,8 +42,8 @@
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(rgba(124,58,237,.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(124,58,237,.04) 1px, transparent 1px);
+    linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
   background-size: 60px 60px;
   pointer-events: none;
 }
@@ -255,12 +255,14 @@
 .hero-card {
   width: 100%;
   max-width: 360px;
-  background: var(--bg-card);
-  border: 1px solid var(--border);
+  /* Code card stays dark in both themes for syntax-color contrast */
+  background: #0d0d1c;
+  border: 1px solid rgba(124,58,237,.18);
   border-radius: 14px;
   overflow: hidden;
   box-shadow: 0 24px 60px rgba(0,0,0,.45), 0 0 0 1px rgba(124,58,237,.08);
   animation: card-glow-pulse 4s ease-in-out infinite;
+  color: #f0f0f8;
 }
 @keyframes card-glow-pulse {
   0%,100% { box-shadow: 0 24px 60px rgba(0,0,0,.45), 0 0 0 1px rgba(124,58,237,.08), 0 0 30px rgba(124,58,237,.05); }

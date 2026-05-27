@@ -1,4 +1,4 @@
-.skills-section { background: rgba(124,58,237,.02); }
+.skills-section { background: var(--section-tint); }
 
 .skills-grid {
   display: grid;

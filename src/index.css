@@ -5,18 +5,24 @@
 }
 
 :root {
-  --bg:           #07070e;
-  --bg-card:      #0d0d1c;
-  --bg-card-hover:#111128;
-  --accent:       #7c3aed;
-  --accent-2:     #a855f7;
-  --accent-light: #c084fc;
-  --accent-glow:  rgba(124, 58, 237, 0.22);
-  --text-1:       #f0f0f8;
-  --text-2:       #8b8ba8;
-  --text-muted:   #4a4a6a;
-  --border:       rgba(124, 58, 237, 0.12);
-  --border-bright:rgba(124, 58, 237, 0.38);
+  /* Dark theme (default) */
+  --bg:             #07070e;
+  --bg-card:        #0d0d1c;
+  --bg-card-hover:  #111128;
+  --bg-navbar:      rgba(7, 7, 14, 0.85);
+  --bg-menu:        #0d0d1c;
+  --accent:         #7c3aed;
+  --accent-2:       #a855f7;
+  --accent-light:   #c084fc;
+  --accent-glow:    rgba(124, 58, 237, 0.22);
+  --text-1:         #f0f0f8;
+  --text-2:         #8b8ba8;
+  --text-muted:     #4a4a6a;
+  --border:         rgba(124, 58, 237, 0.12);
+  --border-bright:  rgba(124, 58, 237, 0.38);
+  --section-tint:   rgba(124, 58, 237, 0.02);
+  --shadow-card:    0 28px 60px rgba(0,0,0,.5);
+  --grid-line:      rgba(124, 58, 237, 0.04);
 
   --font-display: 'Syne', sans-serif;
   --font-body:    'DM Sans', sans-serif;
@@ -25,6 +31,25 @@
   --ease:         cubic-bezier(0.4, 0, 0.2, 1);
   --trans:        0.3s var(--ease);
   --trans-slow:   0.65s var(--ease);
+}
+
+/* Light theme overrides */
+:root[data-theme="light"] {
+  --bg:             #f6f6fb;
+  --bg-card:        #ffffff;
+  --bg-card-hover:  #fafafd;
+  --bg-navbar:      rgba(255, 255, 255, 0.78);
+  --bg-menu:        #ffffff;
+  --accent-light:   #8b5cf6;       /* slightly darker for contrast on white */
+  --accent-glow:    rgba(124, 58, 237, 0.14);
+  --text-1:         #0e0e1c;
+  --text-2:         #4a4a6a;
+  --text-muted:     #8b8ba8;
+  --border:         rgba(124, 58, 237, 0.16);
+  --border-bright:  rgba(124, 58, 237, 0.40);
+  --section-tint:   rgba(124, 58, 237, 0.035);
+  --shadow-card:    0 20px 44px rgba(76, 29, 149, 0.10);
+  --grid-line:      rgba(124, 58, 237, 0.06);
 }
 
 html {
@@ -40,6 +65,7 @@ body {
   font-size: 16px;
   line-height: 1.7;
   overflow-x: hidden;
+  transition: background-color .35s var(--ease), color .35s var(--ease);
 }
 
 /* ── Scrollbar ── */

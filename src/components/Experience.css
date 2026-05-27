@@ -1,4 +1,4 @@
-.exp-section { background: rgba(124,58,237,.02); }
+.exp-section { background: var(--section-tint); }
 
 /* ── Timeline wrapper ── */
 .timeline {

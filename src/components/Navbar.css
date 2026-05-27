@@ -14,14 +14,14 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: rgba(7, 7, 14, 0.85);
+  background: var(--bg-navbar);
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
   box-shadow: 0 1px 0 rgba(124,58,237,.12);
   opacity: 0;
   pointer-events: none;
   z-index: -1;
-  transition: opacity .4s var(--ease);
+  transition: opacity .4s var(--ease), background-color .35s var(--ease);
 }
 
 .navbar.scrolled         { padding: 12px 0; }
@@ -31,6 +31,12 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+.navbar-end {
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
 
 /* ── Logo ── */
@@ -137,7 +143,7 @@
   position: fixed;
   inset: 0;
   z-index: 998;
-  background: rgba(7,7,14,.6);
+  background: rgba(7,7,14,.45);
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
   opacity: 0;
@@ -170,7 +176,7 @@
     flex-direction: column;
     align-items: flex-start;
     padding: 80px 28px 40px;
-    background: #0d0d1c;
+    background: var(--bg-menu);
     border-left: 1px solid var(--border);
     gap: 4px;
     z-index: 999;

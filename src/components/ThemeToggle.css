@@ -1,0 +1,41 @@
+.theme-toggle {
+  position: relative;
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  background: transparent;
+  border: 1px solid var(--border-bright);
+  border-radius: 8px;
+  color: var(--accent-light);
+  cursor: pointer;
+  padding: 0;
+  transition:
+    background var(--trans),
+    border-color var(--trans),
+    color var(--trans);
+}
+
+.theme-toggle:hover {
+  background: rgba(124, 58, 237, 0.1);
+  border-color: var(--accent);
+  color: var(--text-1);
+}
+
+.tt-icon {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  transition: opacity .3s var(--ease), transform .4s var(--ease);
+}
+
+.tt-icon.hidden {
+  opacity: 0;
+  transform: scale(.5) rotate(-90deg);
+  pointer-events: none;
+}
+
+.theme-toggle:hover .tt-icon:not(.hidden) {
+  transform: rotate(15deg);
+}

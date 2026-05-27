@@ -1,4 +1,5 @@
-import Cursor         from './components/Cursor'
+import { Analytics }   from '@vercel/analytics/react'
+import Cursor          from './components/Cursor'
 import ScrollProgress  from './components/ScrollProgress'
 import Navbar          from './components/Navbar'
 import Hero            from './components/Hero'
@@ -24,6 +25,7 @@ export default function App() {
         <Contact />
       </main>
       <Footer />
+      <Analytics />
     </div>
   )
 }
